@@ -12,7 +12,7 @@ def home():
         'address': "Harsha's Elite Apartment, Flat No I-2, Pathuru Cross Road, Kunchanapalli, Vijayawada, India",
         'dob': '06/09/2001',
         'gender': 'Male',
-        'summary': 'Experienced Full Stack Developer and Graphic Designer with a strong background in Python, Flask, MySQL, AWS, and frontend technologies. Skilled in developing scalable web applications and digital marketing solutions.',
+        'summary': 'Full Stack Developer with a strong background in Python, Flask, MySQL and frontend technologies. Skilled in developing scalable web applications and digital marketing solutions.',
         'education': [
             {'period': '12/2020 – 11/2024', 'degree': 'Bachelor of Engineering','college': 'Panimalar Institute of Technology','location': 'Chennai', 'cgpa': '5.84'},
             {'period': '03/2018 – 03/2020', 'degree': 'Intermediate', 'school': 'Sri Chaitanya Educational Institutions, Vijayawada', 'cgpa': '5.67'},

@@ -8,23 +8,26 @@
 </head>
 <body>
     <div class="main-content">
-        <img src="{{ url_for('static', filename='Joy Nicholas degree photo.jpg') }}" alt="Profile Picture" class="profile-img">
+        <img src="{{ url_for('static', filename='Joy Nicholas degree photo.jpg') }}" 
+             alt="Profile Picture" class="profile-img">
 
         <header>
             <h1>{{ profile.name }}</h1>
             <p>{{ profile.summary }}</p>
             <div class="contact-info">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ profile.email }}"
-                   target="_blank" rel="noopener noreferrer">{{ profile.email }}</a>
-                {% set phones = profile.phone.split(',') %}
-                {% for phone_raw in phones %}
-                    {% set phone = phone_raw.strip().replace(' ', '') %}
-                    {% if phone %}
-                        <a href="https://wa.me/91{{ phone }}" target="_blank" rel="noopener noreferrer">
-                            WhatsApp: {{ phone }}
-                        </a>
-                    {% endif %}
-                {% endfor %}
+                <a href="mailto:{{ profile.email }}" target="_blank" rel="noopener noreferrer">
+                    {{ profile.email }}
+                </a>
+                {% if profile.phone %}
+                    {% for phone_raw in profile.phone.split(',') %}
+                        {% set phone = phone_raw.strip().replace(' ', '') %}
+                        {% if phone %}
+                            <a href="https://wa.me/91{{ phone }}" target="_blank" rel="noopener noreferrer">
+                                WhatsApp: {{ phone }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
                 <a href="{{ profile.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
         </header>
