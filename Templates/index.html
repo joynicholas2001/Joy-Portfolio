@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ profile.name }} - Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-content">
+        <img src="{{ url_for('static', filename='Joy Nicholas degree photo.jpg') }}" alt="Profile Picture" class="profile-img">
+
+        <header>
+            <h1>{{ profile.name }}</h1>
+            <p>{{ profile.summary }}</p>
+            <div class="contact-info">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ profile.email }}"
+                   target="_blank" rel="noopener noreferrer">{{ profile.email }}</a>
+                {% set phones = profile.phone.split(',') %}
+                {% for phone_raw in phones %}
+                    {% set phone = phone_raw.strip().replace(' ', '') %}
+                    {% if phone %}
+                        <a href="https://wa.me/91{{ phone }}" target="_blank" rel="noopener noreferrer">
+                            WhatsApp: {{ phone }}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+                <a href="{{ profile.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>Education</h2>
+            <ul>
+                {% for edu in profile.education %}
+                <li>
+                    <strong>{{ edu.degree }}</strong>
+                    {% if edu.school %} - {{ edu.school }} {% endif %}
+                    {% if edu.location %} - {{ edu.location }} {% endif %}
+                    ({{ edu.period }})
+                    {% if edu.cgpa %}- CGPA: {{ edu.cgpa }}{% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <ul>
+                {% for skill in profile.skills %}
+                <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section>
+            <h2>Certificates</h2>
+            <ul>
+                {% for cert in profile.certificates %}
+                <li>
+                    {% if cert.link %}
+                        <a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer">
+                            <strong>{{ cert.title }}</strong>
+                        </a>
+                    {% else %}
+                        <strong>{{ cert.title }}</strong>
+                    {% endif %}
+                    : {{ cert.details }}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section>
+            <h2>Languages</h2>
+            <p>{{ profile.languages | join(', ') }}</p>
+        </section>
+
+        <section>
+            <h2>Interests</h2>
+            <ul>
+                {% for interest in profile.interests %}
+                <li>{{ interest }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

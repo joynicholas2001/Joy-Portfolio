@@ -1,0 +1,201 @@
+/* ======== Root Variables ======== */
+:root {
+    --color-primary: #2958a6;
+    --color-primary-dark: #176d99;
+    --color-primary-light: #6db0ff;
+    --color-background: #f9fafb;
+    --color-text: #162134;
+    --color-text-muted: #2c3245;
+    --color-link-border: #e3eefa;
+    --color-contact-bg: #f1f6fb;
+    --color-contact-bg-hover: #e5edf7;
+    --shadow-light: rgba(71, 144, 224, 0.06);
+    --shadow-main: rgba(32, 49, 97, 0.10);
+}
+
+/* ======== Global Styles ======== */
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--color-background);
+    color: var(--color-text);
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+/* ======== Main Content ======== */
+.main-content {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px var(--shadow-main);
+    max-width: 830px;
+    width: 100%;
+    margin: 40px 16px;
+    padding: 48px 60px 38px 60px;
+    position: relative;
+}
+
+/* ======== Profile Image (Optional) ======== */
+.profile-img {
+    display: block;
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 24px auto;
+    border: 4px solid var(--color-link-border);
+    background: #f5fafd;
+    box-shadow: 0 2px 12px rgba(60, 140, 217, 0.07);
+}
+
+/* ======== Typography ======== */
+h1 {
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 2.7rem;
+    font-weight: 900;
+    margin-bottom: 0.14em;
+    letter-spacing: 0.01em;
+}
+
+h2 {
+    color: #264375;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-left: 4px solid var(--color-primary-light);
+    padding-left: 13px;
+    margin-top: 38px;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+p, li {
+    font-size: 1.06rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px 0;
+}
+
+li {
+    padding-left: 8px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+li:before {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: var(--color-primary-light);
+    border-radius: 50%;
+    position: absolute;
+    left: -18px;
+    top: 12px;
+}
+
+strong {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* ======== Links & Contact ======== */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.25s ease, border-color 0.25s ease;
+    border-bottom: 1px solid var(--color-link-border);
+}
+
+/* Improved focus for accessibility */
+a:focus-visible {
+    outline: 3px solid var(--color-primary-light);
+    outline-offset: 2px;
+}
+
+a:hover,
+a:focus {
+    color: var(--color-primary-dark);
+    border-bottom: 1px solid var(--color-primary);
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 26px 0;
+}
+
+.contact-info a {
+    background: var(--color-contact-bg);
+    color: var(--color-primary);
+    padding: 9px 18px;
+    border-radius: 7px;
+    box-shadow: 0 1.5px 8px var(--shadow-light);
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-info a:hover,
+.contact-info a:focus {
+    background: var(--color-contact-bg-hover);
+    color: var(--color-primary-dark);
+    box-shadow: 0 4px 16px var(--shadow-light);
+}
+
+/* ======== Responsive Design ======== */
+@media (max-width: 1000px) {
+    .main-content {
+        padding: 34px 18px 28px 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.45rem;
+    }
+    h2 {
+        font-size: 1rem;
+        padding-left: 9px;
+    }
+    .main-content {
+        border-radius: 9px;
+        padding: 11vw 3vw;
+        margin: 1.5vw;
+    }
+    .contact-info {
+        gap: 7px;
+    }
+    .profile-img {
+        width: 78px;
+        height: 78px;
+        margin-bottom: 14px;
+    }
+}
+
+/* ======== Scrollbar ======== */
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-link-border);
+    border-radius: 9px;
+}
+::-webkit-scrollbar-track {
+    background: #f6fafe;
+}
