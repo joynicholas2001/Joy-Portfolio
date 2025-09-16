@@ -3,88 +3,104 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ profile.name }} - Portfolio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Mangalapudi Joy Nicholas - Portfolio</title>
+    <link rel="stylesheet" href="/Static/style.css">
 </head>
 <body>
     <div class="main-content">
-        <img src="{{ url_for('static', filename='Joy Nicholas degree photo.jpg') }}" 
+        <img src="/Static/Joy Nicholas degree photo.jpg" 
              alt="Profile Picture" class="profile-img">
 
         <header>
-            <h1>{{ profile.name }}</h1>
-            <p>{{ profile.summary }}</p>
+            <h1>Mangalapudi Joy Nicholas</h1>
+            <p>Full Stack Developer with a strong background in Python, Flask, MySQL and frontend technologies. Skilled in developing scalable web applications and digital marketing solutions.</p>
             <div class="contact-info">
-                <a href="mailto:{{ profile.email }}" target="_blank" rel="noopener noreferrer">
-                    {{ profile.email }}
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=itzjoynicholas@gmail.com" target="_blank" rel="noopener noreferrer">
+                    itzjoynicholas@gmail.com
                 </a>
-                {% if profile.phone %}
-                    {% for phone_raw in profile.phone.split(',') %}
-                        {% set phone = phone_raw.strip().replace(' ', '') %}
-                        {% if phone %}
-                            <a href="https://wa.me/91{{ phone }}" target="_blank" rel="noopener noreferrer">
-                                WhatsApp: {{ phone }}
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
-                <a href="{{ profile.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://wa.me/919963416422" target="_blank" rel="noopener noreferrer">
+                    WhatsApp: 9963416422
+                </a>
+                <a href="https://wa.me/917358484266" target="_blank" rel="noopener noreferrer">
+                    WhatsApp: 7358484266
+                </a>
+                <a href="https://www.linkedin.com/in/mangalapudi-joy-nicholas-020a2b224/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
         </header>
 
         <section>
             <h2>Education</h2>
             <ul>
-                {% for edu in profile.education %}
                 <li>
-                    <strong>{{ edu.degree }}</strong>
-                    {% if edu.school %} - {{ edu.school }} {% endif %}
-                    {% if edu.location %} - {{ edu.location }} {% endif %}
-                    ({{ edu.period }})
-                    {% if edu.cgpa %}- CGPA: {{ edu.cgpa }}{% endif %}
+                    <strong>Bachelor of Engineering</strong>
+                    - Panimalar Institute of Technology - Chennai
+                    (12/2020 – 11/2024)
+                    - CGPA: 5.84
                 </li>
-                {% endfor %}
+                <li>
+                    <strong>Intermediate</strong>
+                    - Sri Chaitanya Educational Institutions, Vijayawada
+                    (03/2018 – 03/2020)
+                    - CGPA: 5.67
+                </li>
+                <li>
+                    <strong>SSC</strong>
+                    - Sri Chaitanya Educational Institutions, Mangalagiri
+                    (03/2016 – 05/2017)
+                </li>
             </ul>
         </section>
 
         <section>
             <h2>Skills</h2>
             <ul>
-                {% for skill in profile.skills %}
-                <li>{{ skill }}</li>
-                {% endfor %}
+                <li>Python Full Stack Development</li>
+                <li>Front-end: HTML, CSS, JavaScript</li>
+                <li>Back-end: Flask, MySQL</li>
+                <li>Debugging and problem solving</li>
+                <li>Effective communication and presentation</li>
+                <li>Graphic Designing</li>
             </ul>
         </section>
 
         <section>
             <h2>Certificates</h2>
             <ul>
-                {% for cert in profile.certificates %}
                 <li>
-                    {% if cert.link %}
-                        <a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer">
-                            <strong>{{ cert.title }}</strong>
-                        </a>
-                    {% else %}
-                        <strong>{{ cert.title }}</strong>
-                    {% endif %}
-                    : {{ cert.details }}
+                    <a href="https://drive.google.com/file/d/18MJEUQjiosZ6n5r6FUWZfuenlaahL-B4/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                        <strong>Technical Associate at 4SIGHT AI</strong>
+                    </a>
+                    : Worked on AP POLICE National Hackathon and Digital Marketing for AP Government.
                 </li>
-                {% endfor %}
+                <li>
+                    <a href="https://drive.google.com/file/d/1Euevqo3BT5kAQVl6rW7jsimbYa_QPOwU/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                        <strong>Python Full Stack Developer</strong>
+                    </a>
+                    : Trained in Python, MySQL, Flask, HTML, CSS, JavaScript, AWS. Developed an E-Commerce Web Application using Flask.
+                </li>
             </ul>
         </section>
 
         <section>
+            <h2>Projects</h2>
+            <ul>
+                <li>
+                    <a href="https://art-gram-project.vercel.app/"
+                       target="_blank" rel="noopener noreferrer">
+                        <strong>Art Gram E-Commerce: </strong>
+                    </a>
+                         Worked on E-Commerece website using HTML and CSS.
+
+        <section>
             <h2>Languages</h2>
-            <p>{{ profile.languages | join(', ') }}</p>
+            <p>English, Telugu, Tamil</p>
         </section>
 
         <section>
             <h2>Interests</h2>
             <ul>
-                {% for interest in profile.interests %}
-                <li>{{ interest }}</li>
-                {% endfor %}
+                <li>Graphic Designing</li>
+                <li>Creating Videos on Social Media</li>
             </ul>
         </section>
     </div>
